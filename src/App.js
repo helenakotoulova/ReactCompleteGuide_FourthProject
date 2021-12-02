@@ -1,16 +1,25 @@
-import { useState } from "react/cjs/react.development";
+import { useState } from "react";
 import Login from "./components/Login";
 import MainHeader from "./components/MainHeader";
+import Home from './components/Home';
 
 function App() {
   
+  function logOutHandler() {
+      setLoggedIn(false);
+  }
+
+  const [loggedIn, setLoggedIn]=useState();
   function loginHandler(mail, password) {
-    console.log(mail, password);
+    setLoggedIn(true);
   }
   return (
     <>
-      <MainHeader />
-      <Login onLogin={loginHandler} />
+      < MainHeader loggedIn={loggedIn} logOut={logOutHandler} />
+      <main>
+      {!loggedIn && <Login onLogin={loginHandler} />}
+      {loggedIn && <Home/>}
+      </main>
     </>
   );
 }

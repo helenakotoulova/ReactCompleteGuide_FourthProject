@@ -1,15 +1,16 @@
 .form {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 12px;
+    width: 90%;
+    max-width: 35rem;
+    padding: 3rem 2rem;
+    font-size: 115%;
     margin:auto;
-    width: 30rem;
-    padding: 2rem;
 }
 
 .inputs {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
+    align-items:center;
 }
 
 .form label {
@@ -20,7 +21,15 @@
 .form input {
     width:20rem;
     border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 1.5rem;
 }
+
+.form input:focus {
+    outline: none;
+    border-color: #4f005f;
+    background: #f6dbfc;
+  }
 
 .actions {
     text-align: center;
@@ -30,7 +39,7 @@
     background-color: #741188;;
     color:white;
     cursor: pointer;
-    padding: 10px 30px;
+    padding: 10px 50px;
     border-radius: 20px;
     border-color: #741188;;
     font-size: 100%;

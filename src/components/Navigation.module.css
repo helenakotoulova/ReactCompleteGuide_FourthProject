@@ -1,0 +1,35 @@
+.ul {
+  list-style: none;
+  padding: 0;
+}
+
+.ul li {
+  display: inline;
+  margin-right: 50px;
+}
+
+.ul a {
+  text-decoration: none;
+  color: white;
+  font-size: 150%;
+}
+
+.ul a:hover,
+.ul a:active {
+  color: #f3cafb;
+}
+
+.ul button {
+  color: white;
+  background: #dd0db0;
+  border: 1px solid #dd0db0;
+  cursor: pointer;
+  padding: 0.25rem 1.5rem;
+  border-radius: 20px;
+  font-size: 150%;
+}
+
+.ul button:hover,
+.ul button:active {
+    color: #f3cafb;
+}

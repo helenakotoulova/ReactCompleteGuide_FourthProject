@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import classes from "./Login.module.css";
+import Card from "./UI/Card";
 
 function Login(props) {
   const enteredInputMail = useRef();
@@ -8,8 +9,8 @@ function Login(props) {
   const [validForm, setValidForm] = useState(false);
   const [isValidMail, setIsValidMail] = useState(true);
   const [isValidPassword, setIsValidPassword] = useState(true);
-  const [enteredMail, setEnteredMail] = useState();
-  const [enteredPassword, setEnteredPassword] = useState();
+  const [enteredMail, setEnteredMail] = useState('');
+  const [enteredPassword, setEnteredPassword] = useState('');
 
   function emailHandler(event) {
     setEnteredMail(event.target.value);
@@ -47,12 +48,15 @@ function Login(props) {
       setValidForm(true);
     }
     */
+
+    // sem me to pusti vlastne az je validForm true (predtim je disabled to submit tlacitko),
+    // takze nemusim resit uz zadne if podminky.
     props.onLogin(enteredMail, enteredPassword);
   }
 
   return (
-    <>
-      <form onSubmit={submitHandler} className={classes.form}>
+    <Card className={classes.form}>
+      <form onSubmit={submitHandler} >
         <div
           className={`${classes.inputs} ${isValidMail ? "" : classes.invalid}`}
         >
@@ -61,6 +65,7 @@ function Login(props) {
             type="email"
             id="email"
             ref={enteredInputMail}
+            value={enteredMail}
             onChange={emailHandler}
             onBlur={validateMail}
           />
@@ -75,6 +80,7 @@ function Login(props) {
             type="password"
             id="password"
             ref={enteredInputPassword}
+            value={enteredPassword}
             onChange={passwordHandler}
             onBlur={validatePassword}
           />
@@ -85,7 +91,7 @@ function Login(props) {
           </button>
         </div>
       </form>
-    </>
+    </Card>
   );
 }
 
